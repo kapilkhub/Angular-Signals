@@ -4,13 +4,13 @@
   </div>
 
   <div class='card-body'
-       *ngIf="vehicles$ | async as vehicles">
+       *ngIf="vehicles().length">
 
     <div class="list-group">
       <button type="button"
               class="list-group-item"
-              *ngFor="let vehicle of vehicles"
-              [ngClass]="{'active': vehicle?.name === (selectedVehicle$ | async)?.name}"
+              *ngFor="let vehicle of vehicles()"
+              [ngClass]="{'active': vehicle?.name === selectedVehicle()?.name}"
               (click)="onSelected(vehicle.name)">
         {{ vehicle.name }}
       </button>
